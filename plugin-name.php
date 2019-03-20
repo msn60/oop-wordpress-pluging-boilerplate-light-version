@@ -12,7 +12,7 @@
  * @package           Plugin_Name_Name_Space
  *
  * @wordpress-plugin
- * Plugin Name:       OOP WordPress Plugin Boilerplate - Light Version
+ * Plugin Name:       OOP Plugin Boilerplate - Light Version
  * Plugin URI:        https://github.com/msn60/oop-wordpress-boilerplate-light
  * Description:       This is a boilerplate for plugin development in WordPress with OOP structure
  * Version:           1.0.1
@@ -26,8 +26,8 @@
 
 use Plugin_Name_Name_Space\Includes\Init\Core;
 use Plugin_Name_Name_Space\Includes\Init\Constant;
-/*use Plugin_Name_Name_Space\Includes\Init\Activator;
-use Plugin_Name_Name_Space\Includes\Uninstall\Deactivator;
+use Plugin_Name_Name_Space\Includes\Init\Activator;
+/*use Plugin_Name_Name_Space\Includes\Uninstall\Deactivator;
 use Plugin_Name_Name_Space\Includes\Uninstall\Uninstall;*/
 
 /**
@@ -94,7 +94,6 @@ class Plugin_Name_Plugin {
 		/*Define required constant for plugin*/
 		Constant::define_constant();
 
-
 		/**
 		 * Register activation hook.
 		 * Register activation hook for this plugin by invoking activate_plugin_name
@@ -103,10 +102,10 @@ class Plugin_Name_Plugin {
 		 * @param string   $file     path to the plugin file.
 		 * @param callback $function The function to be run when the plugin is activated.
 		 */
-		/*register_activation_hook(
+		register_activation_hook(
 			__FILE__,
 			array( $this, 'activate_plugin_name' )
-		);*/
+		);
 		/**
 		 * Register deactivation hook.
 		 * Register deactivation hook for this plugin by invoking deactivate_plugin_name
