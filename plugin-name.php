@@ -27,8 +27,8 @@
 use Plugin_Name_Name_Space\Includes\Init\Core;
 use Plugin_Name_Name_Space\Includes\Init\Constant;
 use Plugin_Name_Name_Space\Includes\Init\Activator;
-/*use Plugin_Name_Name_Space\Includes\Uninstall\Deactivator;
-use Plugin_Name_Name_Space\Includes\Uninstall\Uninstall;*/
+use Plugin_Name_Name_Space\Includes\Uninstall\Deactivator;
+use Plugin_Name_Name_Space\Includes\Uninstall\Uninstall;
 
 /**
  * If this file is called directly, then abort execution.
@@ -114,10 +114,10 @@ class Plugin_Name_Plugin {
 		 * @param string   $file     path to the plugin file.
 		 * @param callback $function The function to be run when the plugin is deactivated.
 		 */
-		/*register_deactivation_hook(
+		register_deactivation_hook(
 			__FILE__,
 			array( $this, 'deactivate_plugin_name' )
-		);*/
+		);
 		/**
 		 * Register deactivation hook.
 		 * Register deactivation hook for this plugin by invoking deactivate_plugin_name
@@ -126,10 +126,10 @@ class Plugin_Name_Plugin {
 		 * @param string   $file     path to the plugin file.
 		 * @param callback $function The function to be run when the plugin is deactivated.
 		 */
-		/*register_uninstall_hook(
+		register_uninstall_hook(
 			__FILE__,
 			array( 'Plugin_Name_Plugin', 'uninstall_plugin_name' )
-		);*/
+		);
 		//self::run_plugin_name_plugin();
 	}
 
