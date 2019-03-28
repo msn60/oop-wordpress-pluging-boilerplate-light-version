@@ -5,14 +5,14 @@
  * This file contains hooks that you need in public
  * (like enqueue styles or scripts in front end)
  *
- * @package    Plugin_Name_Dir\Includes\Init
+ * @package    Plugin_Name_Name_Space\Includes\Init
  * @author     Your_Name <youremail@nomail.com>
  * @license    https://www.gnu.org/licenses/gpl-3.0.txt GNU/GPLv3
  * @link       https://yoursite.com
  * @since      1.0.0
  */
 
-namespace Plugin_Name_Dir\Includes\Init;
+namespace Plugin_Name_Name_Space\Includes\Init;
 
 /**
  * The public-facing functionality of the plugin.
@@ -20,7 +20,7 @@ namespace Plugin_Name_Dir\Includes\Init;
  * Defines the plugin name, version, and two examples hooks for how to
  * enqueue the public-facing stylesheet and JavaScript.
  *
- * @package    Plugin_Name_Dir\Includes\Init
+ * @package    Plugin_Name_Name_Space\Includes\Init
  * @author     Your_Name <youremail@nomail.com>
  */
 class Public_Hook {

@@ -130,7 +130,7 @@ class Plugin_Name_Plugin {
 			__FILE__,
 			array( 'Plugin_Name_Plugin', 'uninstall_plugin_name' )
 		);
-		//self::run_plugin_name_plugin();
+		self::run_plugin_name_plugin();
 	}
 
 	/**
