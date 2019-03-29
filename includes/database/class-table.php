@@ -73,9 +73,9 @@ class Table {
 		 * @see /wp-includes/wp-db.php
 		 */
 		global $wpdb;
-		$this->wpdb                    = $wpdb;
-		$this->charset_collate         = $this->wpdb->get_charset_collate();
-		$this->db_version              = PLUGIN_NAME_DB_VERSION;
+		$this->wpdb                 = $wpdb;
+		$this->charset_collate      = $this->wpdb->get_charset_collate();
+		$this->db_version           = PLUGIN_NAME_DB_VERSION;
 		$this->have_your_table_name = get_option( 'have_your_table_name' );
 	}
 

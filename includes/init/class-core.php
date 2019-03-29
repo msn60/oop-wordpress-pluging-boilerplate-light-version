@@ -68,8 +68,6 @@ class Core {
 			$this->version = '1.0.0';
 		}
 		$this->plugin_name = 'plugin-name';
-
-
 	}
 
 	/**

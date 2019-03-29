@@ -83,8 +83,6 @@ class Plugin_Name_Plugin {
 		 * activate plugin again
 		 */
 		define( 'PLUGIN_NAME_DB_VERSION', 1 );
-
-
 		/*Define Autoloader class for plugin*/
 		$autoloader_path = 'includes/class-autoloader.php';
 		/**

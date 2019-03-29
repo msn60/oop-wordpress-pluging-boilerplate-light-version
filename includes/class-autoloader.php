@@ -83,7 +83,7 @@ class Autoloader {
 		}
 
 		// Now build a path to the file using mapping to the file location.
-		$file_path = trailingslashit( dirname( dirname( __FILE__ ) ) . $namespace );
+		$file_path  = trailingslashit( dirname( dirname( __FILE__ ) ) . $namespace );
 		$file_path .= $file_name;
 
 		// If the file exists in the specified path, then include it.
