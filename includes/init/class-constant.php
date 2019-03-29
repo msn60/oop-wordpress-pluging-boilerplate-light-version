@@ -160,6 +160,21 @@ class Constant {
 		if ( ! defined( 'PLUGIN_NAME_JS_VERSION' ) ) {
 			define( 'PLUGIN_NAME_JS_VERSION', 1 );
 		}
+
+		/**
+		 * PLUGIN_NAME_CSS_VERSION constant.
+		 * You can use from this constant to apply on main CSS file when you have changed it.
+		 */
+		if ( ! defined( 'PLUGIN_NAME_ADMIN_CSS_VERSION' ) ) {
+			define( 'PLUGIN_NAME_ADMIN_CSS_VERSION', 1 );
+		}
+		/**
+		 * PLUGIN_NAME_JS_VERSION constant.
+		 * You can use from this constant to apply on main JS file when you have changed it.
+		 */
+		if ( ! defined( 'PLUGIN_NAME_ADMIN_JS_VERSION' ) ) {
+			define( 'PLUGIN_NAME_ADMIN_JS_VERSION', 1 );
+		}
 		/*In future maybe I want to add constants for separated upload directory inside plugin directory*/
 	}
 }

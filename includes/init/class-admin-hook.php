@@ -81,7 +81,7 @@ class Admin_Hook {
 
 		wp_enqueue_style(
 			$this->plugin_name . '-admin-style',
-			PLUGIN_NAME_ADMIN_CSS . 'plugin-name-admin-ver-'.PLUGIN_NAME_CSS_VERSION.'.css',
+			PLUGIN_NAME_ADMIN_CSS . 'plugin-name-admin-ver-'.PLUGIN_NAME_ADMIN_CSS_VERSION.'.css',
 			array(),
 			null,
 			'all'
@@ -110,7 +110,7 @@ class Admin_Hook {
 		 */
 		wp_enqueue_script(
 			$this->plugin_name . '-admin-script',
-			PLUGIN_NAME_ADMIN_JS . 'plugin-name-admin-ver-'.PLUGIN_NAME_JS_VERSION.'.js',
+			PLUGIN_NAME_ADMIN_JS . 'plugin-name-admin-ver-'.PLUGIN_NAME_ADMIN_JS_VERSION.'.js',
 			array( 'jquery' ),
 			null,
 			true

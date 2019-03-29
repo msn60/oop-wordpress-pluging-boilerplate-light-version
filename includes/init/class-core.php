@@ -69,10 +69,6 @@ class Core {
 		}
 		$this->plugin_name = 'plugin-name';
 
-		/*if ( ! is_admin() ) {
-			$this->define_public_hooks();
-			$this->check_url();
-		}*/
 
 	}
 
@@ -91,8 +87,10 @@ class Core {
 		if ( is_admin() ) {
 			$this->set_admin_menu();
 			$this->define_admin_hooks();
+		} else {
+			$this->define_public_hooks();
+			$this->check_url();
 		}
-
 	}
 
 	/**
@@ -211,9 +209,8 @@ class Core {
 	private function define_public_hooks() {
 
 		$plugin_public = new Public_Hook( $this->get_plugin_name(), $this->get_version() );
-
-		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_styles' );
-		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_scripts' );
+		add_action( 'wp_enqueue_scripts', array( $plugin_public, 'enqueue_styles' ) );
+		add_action( 'wp_enqueue_scripts', array( $plugin_public, 'enqueue_scripts' ) );
 
 	}
 
@@ -231,8 +228,7 @@ class Core {
 	 */
 	private function check_url() {
 		$check_url_object = new Router();
-		$this->loader->add_action( 'init', $check_url_object, 'boot' );
-
+		add_action( 'init', array( $check_url_object, 'boot' ) );
 	}
 
 }

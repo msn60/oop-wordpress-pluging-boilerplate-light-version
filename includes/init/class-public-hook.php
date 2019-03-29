@@ -80,13 +80,12 @@ class Public_Hook {
 		 */
 
 		wp_enqueue_style(
-			$this->plugin_name . '_public_style',
-			PLUGIN_NAME_CSS . 'plugin-name-public.css',
+			$this->plugin_name . '-public-style',
+			PLUGIN_NAME_CSS . 'plugin-name-public-ver-' . PLUGIN_NAME_CSS_VERSION . '.css',
 			array(),
-			$this->version,
+			null,
 			'all'
 		);
-
 	}
 
 	/**
@@ -110,11 +109,11 @@ class Public_Hook {
 		 */
 
 		wp_enqueue_script(
-			$this->plugin_name . '_public_script',
-			PLUGIN_NAME_JS . 'plugin-name-public.js',
+			$this->plugin_name . '-public-script',
+			PLUGIN_NAME_JS . 'plugin-name-public-ver-' . PLUGIN_NAME_JS_VERSION . '.js',
 			array( 'jquery' ),
-			$this->version,
-			false
+			null,
+			true
 		);
 	}
 }
