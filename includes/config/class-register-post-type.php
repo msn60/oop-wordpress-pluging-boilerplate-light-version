@@ -29,11 +29,11 @@ class Register_Post_Type {
 	 * This is a property in your Register_Post_Type class that is used to create
 	 * one object from this class in whole of program execution.
 	 *
-	 * @access private
+	 * @access protected
 	 * @var    Register_Post_Type $instance create only one instance from this class
 	 * @static
 	 */
-	private static $instance;
+	protected static $instance;
 	/**
 	 * Argument Property to register a post type.
 	 *
