@@ -51,7 +51,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  * @see        Plugin_Name_Name_Space\Includes\Uninstall\Deactivator Class
  * @see        Plugin_Name_Name_Space\Includes\Uninstall\Uninstall Class
  */
-class Plugin_Name_Plugin {
+final class Plugin_Name_Plugin {
 	/**
 	 * Instance property of Plugin_Name_Plugin Class.
 	 * This is a property in your plugin primary class. You will use to create
@@ -75,7 +75,7 @@ class Plugin_Name_Plugin {
 		 * Currently plugin and database version.
 		 * Rename this for your plugin and update it as you release new versions.
 		 */
-		define( 'PLUGIN_NAME_VERSION', '1.0.1' );
+		define( 'PLUGIN_NAME_VERSION', '1.0.2' );
 		/**
 		 * Define database version
 		 *

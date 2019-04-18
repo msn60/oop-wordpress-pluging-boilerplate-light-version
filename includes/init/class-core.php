@@ -16,6 +16,8 @@ namespace Plugin_Name_Name_Space\Includes\Init;
 
 use Plugin_Name_Name_Space\Includes\Admin\Admin_Menu;
 use Plugin_Name_Name_Space\Includes\Admin\Admin_Sub_Menu;
+use Plugin_Name_Name_Space\Includes\Config\Register_Post_Type;
+use Plugin_Name_Name_Space\Includes\Config\Sample_Post_Type;
 use Plugin_Name_Name_Space\Includes\Functions\Init_Functions;
 use Plugin_Name_Name_Space\Includes\Config\Initial_Value;
 
@@ -113,9 +115,8 @@ class Core {
 
 		$plugin_name_hooks_loader = new Init_Functions();
 		add_action( 'init', array( $plugin_name_hooks_loader, 'app_output_buffer' ) );
-		/**
-		 * $this->loader->add_action( 'init', $plugin_name_hooks_loader, 'remove_admin_bar' );
-		 */
+		/*To add your custom post type*/
+		Sample_Post_Type::instance();
 	}
 
 	/**
