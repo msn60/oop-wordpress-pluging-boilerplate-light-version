@@ -14,6 +14,10 @@
 
 namespace Plugin_Name_Name_Space\Includes\Init;
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
 /**
  * The public-facing functionality of the plugin.
  *

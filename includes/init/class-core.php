@@ -14,6 +14,10 @@
 
 namespace Plugin_Name_Name_Space\Includes\Init;
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
 use Plugin_Name_Name_Space\Includes\Admin\Admin_Menu;
 use Plugin_Name_Name_Space\Includes\Admin\Admin_Sub_Menu;
 use Plugin_Name_Name_Space\Includes\Config\Register_Post_Type;

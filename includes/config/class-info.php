@@ -14,6 +14,10 @@
 
 namespace Plugin_Name_Name_Space\Includes\Config;
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
 /**
  * Class Info
  * If you want to add default settings or some value for options

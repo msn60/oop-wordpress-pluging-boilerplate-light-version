@@ -14,6 +14,10 @@
 
 namespace Plugin_Name_Name_Space\Includes\PageHandlers\Contracts;
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
 /**
  * Interface Page_Handler
  *

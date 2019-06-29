@@ -14,6 +14,10 @@
 
 namespace Plugin_Name_Name_Space\Includes;
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
 /**
  * Class Autoloader
  *

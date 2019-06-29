@@ -17,6 +17,10 @@
 
 namespace Plugin_Name_Name_Space\Includes\Functions;
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
 /**
  * Class Utility.
  * This class contains functions that help you in general tasks like rendering

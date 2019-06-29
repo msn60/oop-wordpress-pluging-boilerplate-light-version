@@ -14,6 +14,10 @@
 
 namespace Plugin_Name_Name_Space\Includes\Config;
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
 /**
  * Class Sample_Post_Type
  * This class contains all things that you need to customize your custom post type

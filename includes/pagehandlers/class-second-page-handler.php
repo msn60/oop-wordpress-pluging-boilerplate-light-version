@@ -14,6 +14,10 @@
 
 namespace Plugin_Name_Name_Space\Includes\PageHandlers;
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
 use Plugin_Name_Name_Space\Includes\PageHandlers\Contracts\Page_Handler;
 use Plugin_Name_Name_Space\Includes\Functions\Utility;
 

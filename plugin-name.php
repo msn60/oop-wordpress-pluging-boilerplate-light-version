@@ -34,8 +34,9 @@ use Plugin_Name_Name_Space\Includes\Uninstall\Uninstall;
  * If this file is called directly, then abort execution.
  */
 if ( ! defined( 'ABSPATH' ) ) {
-	die;
+	exit;
 }
+
 
 /**
  * Class Plugin_Name_Plugin

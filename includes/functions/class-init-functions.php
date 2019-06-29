@@ -14,6 +14,10 @@
 
 namespace Plugin_Name_Name_Space\Includes\Functions;
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
 /**
  * Class Init_Functions.
  * This class handle all of initial functions or methods

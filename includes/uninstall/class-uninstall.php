@@ -13,6 +13,10 @@
 
 namespace Plugin_Name_Name_Space\Includes\Uninstall;
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
 /**
  * Class Uninstall
  *

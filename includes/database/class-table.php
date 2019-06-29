@@ -14,6 +14,10 @@
 
 namespace Plugin_Name_Name_Space\Includes\Database;
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
 /**
  * Class Table to add new tables to your project
  *

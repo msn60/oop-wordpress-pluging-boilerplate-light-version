@@ -14,6 +14,10 @@
 
 namespace Plugin_Name_Name_Space\Includes\Uninstall;
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
 /**
  * Class Deactivator.
  * You can run desire tasks with this class when your plugin is de-activated.

@@ -16,6 +16,10 @@
 
 namespace Plugin_Name_Name_Space\Includes\Init;
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
 use Plugin_Name_Name_Space\Includes\Database\Table;
 use Plugin_Name_Name_Space\Includes\Config\Info;
 

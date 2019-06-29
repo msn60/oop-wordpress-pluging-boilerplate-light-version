@@ -14,6 +14,10 @@
 
 namespace Plugin_Name_Name_Space\Includes\Config;
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
 /**
  * Class Register_Post_Type
  * If you want to add new custom post type for your theme or plugin

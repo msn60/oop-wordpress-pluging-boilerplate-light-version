@@ -13,6 +13,10 @@
 
 namespace Plugin_Name_Name_Space\Includes\Init;
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
 /**
  * Register all actions and filters for the plugin.
  *

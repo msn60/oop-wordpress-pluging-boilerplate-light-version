@@ -14,6 +14,10 @@
 
 namespace Plugin_Name_Name_Space\Includes\Admin;
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
 /**
  * Class Admin_Menu.
  * If you want create an admin page inside admin panel of WordPress,

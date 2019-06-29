@@ -15,6 +15,10 @@
 
 namespace Plugin_Name_Name_Space\Includes\Config;
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
 /**
  * Class Initial_Value.
  * If you need to initial value to start your plugin or need them for

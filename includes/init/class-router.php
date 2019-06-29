@@ -14,6 +14,10 @@
 
 namespace Plugin_Name_Name_Space\Includes\Init;
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
 use Plugin_Name_Name_Space\Includes\PageHandlers\Second_Page_Handler;
 use Plugin_Name_Name_Space\Includes\PageHandlers\First_Page_Handler;
 
