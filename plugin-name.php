@@ -4,17 +4,17 @@
  *
  * Description for OOP Plugin
  *
- * @link              https://github.com/msn60/oop-wordpress-boilerplate
+ * @link              https://github.com/msn60/oop-wordpress-pluging-boilerplate-light-version
  * @since             1.0.0
  * @package           Plugin_Name_Name_Space
  *
  * @wordpress-plugin
  * Plugin Name:       OOP Plugin Boilerplate - Light Version
- * Plugin URI:        https://github.com/msn60/oop-wordpress-boilerplate-light
- * Description:       This is a boilerplate for plugin development in WordPress with OOP structure
+ * Plugin URI:        https://github.com/msn60/oop-wordpress-pluging-boilerplate-light-version
+ * Description:       Description for OOP Plugin
  * Version:           1.0.1
- * Author:            Mehdi Soltani
- * Author URI:        https://wpwebmaster.ir
+ * Author:            Put your name here
+ * Author URI:        https://example.com
  * License:           GPL-2.0+
  * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
  */
@@ -73,7 +73,7 @@ final class Plugin_Name_Plugin {
 		 * Currently plugin and database version.
 		 * Rename this for your plugin and update it as you release new versions.
 		 */
-		define( 'PLUGIN_NAME_VERSION', '1.0.2' );
+		define( 'PLUGIN_NAME_VERSION', '1.0.1' );
 		/**
 		 * Define database version
 		 *
@@ -92,7 +92,7 @@ final class Plugin_Name_Plugin {
 
 		/**
 		 * Register activation hook.
-		 * Register activation hook for this plugin by invoking activate_plugin_name
+		 * Register activation hook for this plugin by invoking activate
 		 * in Plugin_Name_Plugin class.
 		 *
 		 * @param string   $file     path to the plugin file.
@@ -100,11 +100,11 @@ final class Plugin_Name_Plugin {
 		 */
 		register_activation_hook(
 			__FILE__,
-			array( $this, 'activate_plugin_name' )
+			array( $this, 'activate' )
 		);
 		/**
 		 * Register deactivation hook.
-		 * Register deactivation hook for this plugin by invoking deactivate_plugin_name
+		 * Register deactivation hook for this plugin by invoking deactivate
 		 * in Plugin_Name_Plugin class.
 		 *
 		 * @param string   $file     path to the plugin file.
@@ -112,11 +112,11 @@ final class Plugin_Name_Plugin {
 		 */
 		register_deactivation_hook(
 			__FILE__,
-			array( $this, 'deactivate_plugin_name' )
+			array( $this, 'deactivate' )
 		);
 		/**
 		 * Register deactivation hook.
-		 * Register deactivation hook for this plugin by invoking deactivate_plugin_name
+		 * Register deactivation hook for this plugin by invoking deactivate
 		 * in Plugin_Name_Plugin class.
 		 *
 		 * @param string   $file     path to the plugin file.
@@ -124,7 +124,7 @@ final class Plugin_Name_Plugin {
 		 */
 		register_uninstall_hook(
 			__FILE__,
-			array( 'Plugin_Name_Plugin', 'uninstall_plugin_name' )
+			array( 'Plugin_Name_Plugin', 'uninstall' )
 		);
 		self::run_plugin_name_plugin();
 	}
@@ -163,7 +163,7 @@ final class Plugin_Name_Plugin {
 	 * @access public
 	 * @since  1.0.0
 	 */
-	public static function uninstall_plugin_name() {
+	public static function uninstall() {
 		Uninstall::uninstall();
 	}
 
@@ -176,7 +176,7 @@ final class Plugin_Name_Plugin {
 	 * @since  1.0.0
 	 * @see    Plugin_Name_Name_Space\Includes\Init\Activator Class
 	 */
-	public function activate_plugin_name() {
+	public function activate() {
 		Activator::activate();
 	}
 
@@ -188,7 +188,7 @@ final class Plugin_Name_Plugin {
 	 * @access public
 	 * @since  1.0.0
 	 */
-	public function deactivate_plugin_name() {
+	public function deactivate() {
 		Deactivator::deactivate();
 	}
 }
