@@ -1,6 +1,10 @@
 <?php
 /**
+<<<<<<< HEAD
  * WordPress OOP Plugin Boilerplate
+=======
+ * OOP Plugin Boilerplate - older version
+>>>>>>> dev
  *
  * This file is read by WordPress to generate the plugin information in the
  * plugin admin area. This file also includes all of the dependencies used by
@@ -12,7 +16,11 @@
  * @package           Plugin_Name_Dir
  *
  * @wordpress-plugin
+<<<<<<< HEAD
  * Plugin Name:       OOP WordPress Plugin Boilerplate
+=======
+ * Plugin Name:       OOP Plugin Boilerplate - older version
+>>>>>>> dev
  * Plugin URI:        https://github.com/msn60/oop-wordpress-boilerplate
  * Description:       This is a boilerplate for plugin development in WordPress with OOP structure
  * Version:           1.2.2
