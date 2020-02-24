@@ -5,25 +5,21 @@
  * This file contains Constant class which defines needed constants to ease
  * your plugin development processes.
  *
- * @package    Plugin_Name_Name_Space\Includes\Init
+ * @package    Plugin_Name_Dir\Includes\Init
  * @author     Your_Name <youremail@nomail.com>
  * @license    https://www.gnu.org/licenses/gpl-3.0.txt GNU/GPLv3
  * @link       https://yoursite.com
  * @since      1.0.0
  */
 
-namespace Plugin_Name_Name_Space\Includes\Init;
-
-if ( ! defined( 'ABSPATH' ) ) {
-	exit;
-}
+namespace Plugin_Name_Dir\Includes\Init;
 
 /**
  * Class Constant
  *
  * This class defines needed constants that you will use in plugin development.
  *
- * @package    Plugin_Name_Name_Space\Includes\Init
+ * @package    Plugin_Name_Dir\Includes\Init
  * @author     Your_Name <youremail@nomail.com>
  */
 class Constant {
@@ -148,36 +144,6 @@ class Constant {
 		 */
 		if ( ! defined( 'PLUGIN_NAME_TPL_FRONT' ) ) {
 			define( 'PLUGIN_NAME_TPL_FRONT', trailingslashit( PLUGIN_NAME_TPL . 'front' ) );
-		}
-
-		/**
-		 * PLUGIN_NAME_CSS_VERSION constant.
-		 * You can use from this constant to apply on main CSS file when you have changed it.
-		 */
-		if ( ! defined( 'PLUGIN_NAME_CSS_VERSION' ) ) {
-			define( 'PLUGIN_NAME_CSS_VERSION', 1 );
-		}
-		/**
-		 * PLUGIN_NAME_JS_VERSION constant.
-		 * You can use from this constant to apply on main JS file when you have changed it.
-		 */
-		if ( ! defined( 'PLUGIN_NAME_JS_VERSION' ) ) {
-			define( 'PLUGIN_NAME_JS_VERSION', 1 );
-		}
-
-		/**
-		 * PLUGIN_NAME_CSS_VERSION constant.
-		 * You can use from this constant to apply on main CSS file when you have changed it.
-		 */
-		if ( ! defined( 'PLUGIN_NAME_ADMIN_CSS_VERSION' ) ) {
-			define( 'PLUGIN_NAME_ADMIN_CSS_VERSION', 1 );
-		}
-		/**
-		 * PLUGIN_NAME_JS_VERSION constant.
-		 * You can use from this constant to apply on main JS file when you have changed it.
-		 */
-		if ( ! defined( 'PLUGIN_NAME_ADMIN_JS_VERSION' ) ) {
-			define( 'PLUGIN_NAME_ADMIN_JS_VERSION', 1 );
 		}
 		/*In future maybe I want to add constants for separated upload directory inside plugin directory*/
 	}

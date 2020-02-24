@@ -5,18 +5,14 @@
  * This file contains Autoloader class which can manage and handle using classes and
  * files by including them when they are needed.
  *
- * @package    Plugin_Name_Name_Space\Includes
+ * @package    Plugin_Name_Dir\Includes
  * @author     Your_Name <youremail@nomail.com>
  * @license    https://www.gnu.org/licenses/gpl-3.0.txt GNU/GPLv3
  * @link       https://yoursite.com
  * @since      1.0.0
  */
 
-namespace Plugin_Name_Name_Space\Includes;
-
-if ( ! defined( 'ABSPATH' ) ) {
-	exit;
-}
+namespace Plugin_Name_Dir\Includes;
 
 /**
  * Class Autoloader
@@ -24,7 +20,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  * Autoloader class can manage and handle using classes and files in whole of
  * your plugin by including them when they are needed.
  *
- * @package    Plugin_Name_Name_Space\Includes
+ * @package    Plugin_Name_Dir\Includes
  * @author     Your_Name <youremail@nomail.com>
  */
 class Autoloader {
@@ -47,7 +43,7 @@ class Autoloader {
 	 */
 	public function autoload( $class_name ) {
 		// If the specified $class_name does not include our namespace, duck out.
-		if ( false === strpos( $class_name, 'Plugin_Name_Name_Space' ) ) {
+		if ( false === strpos( $class_name, 'Plugin_Name_Dir' ) ) {
 			return;
 		}
 
@@ -87,7 +83,7 @@ class Autoloader {
 		}
 
 		// Now build a path to the file using mapping to the file location.
-		$file_path  = trailingslashit( dirname( dirname( __FILE__ ) ) . $namespace );
+		$file_path = trailingslashit( dirname( dirname( __FILE__ ) ) . $namespace );
 		$file_path .= $file_name;
 
 		// If the file exists in the specified path, then include it.

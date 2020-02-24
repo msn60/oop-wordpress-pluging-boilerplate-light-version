@@ -1,6 +1,6 @@
 <?php
 
-namespace Plugin_Name_Name_Space\Includes\Functions;
+namespace Plugin_Name_Dir\Includes\Functions;
 class Date {
 
 	/**

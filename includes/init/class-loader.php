@@ -4,18 +4,14 @@
  *
  * This file contains a class which registers all actions and filters for the plugin
  *
- * @package    Plugin_Name_Name_Space\Includes\Init
+ * @package    Plugin_Name_Dir\Includes\Init
  * @author     Your_Name <youremail@nomail.com>
  * @license    https://www.gnu.org/licenses/gpl-3.0.txt GNU/GPLv3
  * @link       https://yoursite.com
  * @since      1.0.0
  */
 
-namespace Plugin_Name_Name_Space\Includes\Init;
-
-if ( ! defined( 'ABSPATH' ) ) {
-	exit;
-}
+namespace Plugin_Name_Dir\Includes\Init;
 
 /**
  * Register all actions and filters for the plugin.
@@ -24,7 +20,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  * the plugin, and register them with the WordPress API. Call the
  * run function to execute the list of actions and filters.
  *
- * @package    Plugin_Name_Name_Space\Includes\Init
+ * @package    Plugin_Name_Dir\Includes\Init
  * @author     Your_Name <youremail@nomail.com>
  */
 class Loader {

@@ -5,18 +5,14 @@
  * This file contains hooks that you need in public
  * (like enqueue styles or scripts in front end)
  *
- * @package    Plugin_Name_Name_Space\Includes\Init
+ * @package    Plugin_Name_Dir\Includes\Init
  * @author     Your_Name <youremail@nomail.com>
  * @license    https://www.gnu.org/licenses/gpl-3.0.txt GNU/GPLv3
  * @link       https://yoursite.com
  * @since      1.0.0
  */
 
-namespace Plugin_Name_Name_Space\Includes\Init;
-
-if ( ! defined( 'ABSPATH' ) ) {
-	exit;
-}
+namespace Plugin_Name_Dir\Includes\Init;
 
 /**
  * The public-facing functionality of the plugin.
@@ -24,7 +20,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  * Defines the plugin name, version, and two examples hooks for how to
  * enqueue the public-facing stylesheet and JavaScript.
  *
- * @package    Plugin_Name_Name_Space\Includes\Init
+ * @package    Plugin_Name_Dir\Includes\Init
  * @author     Your_Name <youremail@nomail.com>
  */
 class Public_Hook {
@@ -84,12 +80,13 @@ class Public_Hook {
 		 */
 
 		wp_enqueue_style(
-			$this->plugin_name . '-public-style',
-			PLUGIN_NAME_CSS . 'plugin-name-public-ver-' . PLUGIN_NAME_CSS_VERSION . '.css',
+			$this->plugin_name . '_public_style',
+			PLUGIN_NAME_CSS . 'plugin-name-public.css',
 			array(),
-			null,
+			$this->version,
 			'all'
 		);
+
 	}
 
 	/**
@@ -113,11 +110,11 @@ class Public_Hook {
 		 */
 
 		wp_enqueue_script(
-			$this->plugin_name . '-public-script',
-			PLUGIN_NAME_JS . 'plugin-name-public-ver-' . PLUGIN_NAME_JS_VERSION . '.js',
+			$this->plugin_name . '_public_script',
+			PLUGIN_NAME_JS . 'plugin-name-public.js',
 			array( 'jquery' ),
-			null,
-			true
+			$this->version,
+			false
 		);
 	}
 }
