@@ -1,39 +1,41 @@
 <?php
 /**
- * OOP Plugin Boilerplate - Light Version
+ * WordPress OOP Plugin Boilerplate
  *
- * Description for OOP Plugin
+ * This file is read by WordPress to generate the plugin information in the
+ * plugin admin area. This file also includes all of the dependencies used by
+ * the plugin, registers the activation and deactivation functions, and defines
+ * a function that starts the plugin.
  *
- * @link              https://github.com/msn60/oop-wordpress-pluging-boilerplate-light-version
+ * @link              https://github.com/msn60/oop-wordpress-boilerplate
  * @since             1.0.0
- * @package           Plugin_Name_Name_Space
+ * @package           Plugin_Name_Dir
  *
  * @wordpress-plugin
- * Plugin Name:       OOP Plugin Boilerplate - Light Version
- * Plugin URI:        https://github.com/msn60/oop-wordpress-pluging-boilerplate-light-version
- * Description:       Description for OOP Plugin
- * Version:           1.0.1
- * Author:            Put your name here
- * Author URI:        https://example.com
+ * Plugin Name:       OOP WordPress Plugin Boilerplate
+ * Plugin URI:        https://github.com/msn60/oop-wordpress-boilerplate
+ * Description:       This is a boilerplate for plugin development in WordPress with OOP structure
+ * Version:           1.2.2
+ * Author:            Mehdi Soltani
+ * Author URI:        https://wpwebmaster.ir
  * License:           GPL-2.0+
  * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
  */
 
 /*Define your namespaces here by use keyword*/
 
-use Plugin_Name_Name_Space\Includes\Init\Core;
-use Plugin_Name_Name_Space\Includes\Init\Constant;
-use Plugin_Name_Name_Space\Includes\Init\Activator;
-use Plugin_Name_Name_Space\Includes\Uninstall\Deactivator;
-use Plugin_Name_Name_Space\Includes\Uninstall\Uninstall;
+use Plugin_Name_Dir\Includes\Init\Core;
+use Plugin_Name_Dir\Includes\Init\Constant;
+use Plugin_Name_Dir\Includes\Init\Activator;
+use Plugin_Name_Dir\Includes\Uninstall\Deactivator;
+use Plugin_Name_Dir\Includes\Uninstall\Uninstall;
 
 /**
  * If this file is called directly, then abort execution.
  */
 if ( ! defined( 'ABSPATH' ) ) {
-	exit;
+	die;
 }
-
 
 /**
  * Class Plugin_Name_Plugin
@@ -41,15 +43,15 @@ if ( ! defined( 'ABSPATH' ) ) {
  * This class is primary file of plugin which is used from
  * singletone design pattern.
  *
- * @package    Plugin_Name_Name_Space
+ * @package    Plugin_Name_Dir
  * @author     Your_Name <youremail@nomail.com>
- * @see        Plugin_Name_Name_Space\Includes\Init\Core Class
- * @see        Plugin_Name_Name_Space\Includes\Init\Constant Class
- * @see        Plugin_Name_Name_Space\Includes\Init\Activator Class
- * @see        Plugin_Name_Name_Space\Includes\Uninstall\Deactivator Class
- * @see        Plugin_Name_Name_Space\Includes\Uninstall\Uninstall Class
+ * @see        Plugin_Name_Dir\Includes\Init\Core Class
+ * @see        Plugin_Name_Dir\Includes\Init\Constant Class
+ * @see        Plugin_Name_Dir\Includes\Init\Activator Class
+ * @see        Plugin_Name_Dir\Includes\Uninstall\Deactivator Class
+ * @see        Plugin_Name_Dir\Includes\Uninstall\Uninstall Class
  */
-final class Plugin_Name_Plugin {
+class Plugin_Name_Plugin {
 	/**
 	 * Instance property of Plugin_Name_Plugin Class.
 	 * This is a property in your plugin primary class. You will use to create
@@ -81,6 +83,7 @@ final class Plugin_Name_Plugin {
 		 * activate plugin again
 		 */
 		define( 'PLUGIN_NAME_DB_VERSION', 1 );
+
 		/*Define Autoloader class for plugin*/
 		$autoloader_path = 'includes/class-autoloader.php';
 		/**
@@ -92,7 +95,7 @@ final class Plugin_Name_Plugin {
 
 		/**
 		 * Register activation hook.
-		 * Register activation hook for this plugin by invoking activate
+		 * Register activation hook for this plugin by invoking activate_plugin_name
 		 * in Plugin_Name_Plugin class.
 		 *
 		 * @param string   $file     path to the plugin file.
@@ -100,11 +103,11 @@ final class Plugin_Name_Plugin {
 		 */
 		register_activation_hook(
 			__FILE__,
-			array( $this, 'activate' )
+			array( $this, 'activate_plugin_name' )
 		);
 		/**
 		 * Register deactivation hook.
-		 * Register deactivation hook for this plugin by invoking deactivate
+		 * Register deactivation hook for this plugin by invoking deactivate_plugin_name
 		 * in Plugin_Name_Plugin class.
 		 *
 		 * @param string   $file     path to the plugin file.
@@ -112,11 +115,11 @@ final class Plugin_Name_Plugin {
 		 */
 		register_deactivation_hook(
 			__FILE__,
-			array( $this, 'deactivate' )
+			array( $this, 'deactivate_plugin_name' )
 		);
 		/**
 		 * Register deactivation hook.
-		 * Register deactivation hook for this plugin by invoking deactivate
+		 * Register deactivation hook for this plugin by invoking deactivate_plugin_name
 		 * in Plugin_Name_Plugin class.
 		 *
 		 * @param string   $file     path to the plugin file.
@@ -124,7 +127,7 @@ final class Plugin_Name_Plugin {
 		 */
 		register_uninstall_hook(
 			__FILE__,
-			array( 'Plugin_Name_Plugin', 'uninstall' )
+			array( 'Plugin_Name_Plugin', 'uninstall_plugin_name' )
 		);
 		self::run_plugin_name_plugin();
 	}
@@ -163,7 +166,7 @@ final class Plugin_Name_Plugin {
 	 * @access public
 	 * @since  1.0.0
 	 */
-	public static function uninstall() {
+	public static function uninstall_plugin_name() {
 		Uninstall::uninstall();
 	}
 
@@ -174,9 +177,9 @@ final class Plugin_Name_Plugin {
 	 *
 	 * @access public
 	 * @since  1.0.0
-	 * @see    Plugin_Name_Name_Space\Includes\Init\Activator Class
+	 * @see Plugin_Name_Dir\Includes\Init\Activator Class
 	 */
-	public function activate() {
+	public function activate_plugin_name() {
 		Activator::activate();
 	}
 
@@ -188,7 +191,7 @@ final class Plugin_Name_Plugin {
 	 * @access public
 	 * @since  1.0.0
 	 */
-	public function deactivate() {
+	public function deactivate_plugin_name() {
 		Deactivator::deactivate();
 	}
 }

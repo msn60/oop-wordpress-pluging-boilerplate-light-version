@@ -5,25 +5,19 @@
  * A class definition that includes attributes and functions used across both the
  * public-facing side of the site and the admin area.
  *
- * @package    Plugin_Name_Name_Space\Includes\Init
+ * @package    Plugin_Name_Dir\Includes\Init
  * @author     Your_Name <youremail@nomail.com>
  * @license    https://www.gnu.org/licenses/gpl-3.0.txt GNU/GPLv3
  * @link       https://yoursite.com
  * @since      1.0.0
  */
 
-namespace Plugin_Name_Name_Space\Includes\Init;
+namespace Plugin_Name_Dir\Includes\Init;
 
-if ( ! defined( 'ABSPATH' ) ) {
-	exit;
-}
-
-use Plugin_Name_Name_Space\Includes\Admin\Admin_Menu;
-use Plugin_Name_Name_Space\Includes\Admin\Admin_Sub_Menu;
-use Plugin_Name_Name_Space\Includes\Config\Register_Post_Type;
-use Plugin_Name_Name_Space\Includes\Config\Sample_Post_Type;
-use Plugin_Name_Name_Space\Includes\Functions\Init_Functions;
-use Plugin_Name_Name_Space\Includes\Config\Initial_Value;
+use Plugin_Name_Dir\Includes\Admin\Admin_Menu;
+use Plugin_Name_Dir\Includes\Admin\Admin_Sub_Menu;
+use Plugin_Name_Dir\Includes\Functions\Init_Functions;
+use Plugin_Name_Dir\Includes\Config\Initial_Value;
 
 /**
  * The core plugin class.
@@ -35,10 +29,20 @@ use Plugin_Name_Name_Space\Includes\Config\Initial_Value;
  * version of the plugin.
  *
  * @since      1.0.1
- * @package    Plugin_Name_Name_Space\Includes\Init
+ * @package    Plugin_Name_Dir\Includes\Init
  * @author     Your_Name <youremail@nomail.com>
  */
 class Core {
+
+	/**
+	 * The loader that's responsible for maintaining and registering all hooks that power
+	 * the plugin.
+	 *
+	 * @since    1.0.0
+	 * @access   protected
+	 * @var      Loader $loader Maintains and registers all hooks for the plugin.
+	 */
+	protected $loader;
 
 	/**
 	 * The unique identifier of this plugin.
@@ -73,28 +77,20 @@ class Core {
 		} else {
 			$this->version = '1.0.0';
 		}
-		$this->plugin_name = 'plugin-name';
-	}
+		$this->plugin_name = 'plugin_name';
 
-	/**
-	 * Run the Needed methods for plugin
-	 *
-	 * In run method, you can run every methods that you need to run every time that your plugin is loaded.
-	 *
-	 * @since    1.0.0
-	 * @access   private
-	 * @see      \Plugin_Name_Name_Space\Includes\Init\Loader
-	 */
-	public function run() {
 		$this->load_dependencies();
 		$this->set_locale();
 		if ( is_admin() ) {
 			$this->set_admin_menu();
 			$this->define_admin_hooks();
-		} else {
+		}
+
+		if ( ! is_admin() ) {
 			$this->define_public_hooks();
 			$this->check_url();
 		}
+
 	}
 
 	/**
@@ -112,15 +108,17 @@ class Core {
 	 *
 	 * @since    1.0.0
 	 * @access   private
-	 * @see      \Plugin_Name_Name_Space\Includes\Init\Loader
-	 * @see      \Plugin_Name_Name_Space\Includes\Functions\Init_Functions
+	 * @see      \Plugin_Name_Dir\Includes\Init\Loader
+	 * @see      \Plugin_Name_Dir\Includes\Functions\Init_Functions
 	 */
 	private function load_dependencies() {
 
+		$this->loader             = new Loader();
 		$plugin_name_hooks_loader = new Init_Functions();
-		add_action( 'init', array( $plugin_name_hooks_loader, 'app_output_buffer' ) );
-		/*To add your custom post type*/
-		Sample_Post_Type::instance();
+		$this->loader->add_action( 'init', $plugin_name_hooks_loader, 'app_output_buffer' );
+		/**
+		$this->loader->add_action( 'init', $plugin_name_hooks_loader, 'remove_admin_bar' );
+		 */
 	}
 
 	/**
@@ -131,12 +129,14 @@ class Core {
 	 *
 	 * @since    1.0.0
 	 * @access   private
-	 * @see      \Plugin_Name_Name_Space\Includes\Init\I18n
+	 * @see      \Plugin_Name_Dir\Includes\Init\I18n
 	 */
 	private function set_locale() {
 
 		$plugin_i18n = new I18n();
-		add_action( 'plugins_loaded', array( $plugin_i18n, 'load_plugin_textdomain' ) );
+
+		$this->loader->add_action( 'plugins_loaded', $plugin_i18n, 'load_plugin_textdomain' );
+
 	}
 
 	/**
@@ -147,18 +147,19 @@ class Core {
 	 *
 	 * @since    1.0.0
 	 * @access   private
-	 * @see      \Plugin_Name_Name_Space\Includes\Admin\Admin_Menu
-	 * @see      \Plugin_Name_Name_Space\Includes\Config\Initial_Value
+	 * @see      \Plugin_Name_Dir\Includes\Admin\Admin_Menu
+	 * @see      \Plugin_Name_Dir\Includes\Config\Initial_Value
 	 */
 	private function set_admin_menu() {
 		$plugin_name_sample_admin_menu = new Admin_Menu( Initial_Value::sample_menu_page() );
-		add_action( 'admin_menu', array( $plugin_name_sample_admin_menu, 'add_admin_menu_page' ) );
+		$this->loader->add_action( 'admin_menu', $plugin_name_sample_admin_menu, 'add_admin_menu_page' );
 
 		$plugin_name_sample_admin_sub_menu1 = new Admin_Sub_Menu( Initial_Value::sample_sub_menu_page1() );
-		add_action( 'admin_menu', array( $plugin_name_sample_admin_sub_menu1, 'add_admin_sub_menu_page' ) );
+		$this->loader->add_action( 'admin_menu', $plugin_name_sample_admin_sub_menu1, 'add_admin_sub_menu_page' );
 
 		$plugin_name_sample_admin_sub_menu2 = new Admin_Sub_Menu( Initial_Value::sample_sub_menu_page2() );
-		add_action( 'admin_menu', array( $plugin_name_sample_admin_sub_menu2, 'add_admin_sub_menu_page' ) );
+		$this->loader->add_action( 'admin_menu', $plugin_name_sample_admin_sub_menu2, 'add_admin_sub_menu_page' );
+
 	}
 
 	/**
@@ -170,13 +171,14 @@ class Core {
 	 *
 	 * @since    1.0.0
 	 * @access   private
-	 * @see      \Plugin_Name_Name_Space\Includes\Init\Admin_Hook
+	 * @see      \Plugin_Name_Dir\Includes\Init\Admin_Hook
 	 */
 	private function define_admin_hooks() {
 
 		$plugin_admin = new Admin_Hook( $this->get_plugin_name(), $this->get_version() );
-		add_action( 'admin_enqueue_scripts', array( $plugin_admin, 'enqueue_styles' ) );
-		add_action( 'admin_enqueue_scripts', array( $plugin_admin, 'enqueue_scripts' ) );
+
+		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_styles' );
+		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts' );
 
 	}
 
@@ -207,13 +209,14 @@ class Core {
 	 *
 	 * @since    1.0.0
 	 * @access   private
-	 * @see      \Plugin_Name_Name_Space\Includes\Init\Public_Hook
+	 * @see      \Plugin_Name_Dir\Includes\Init\Public_Hook
 	 */
 	private function define_public_hooks() {
 
 		$plugin_public = new Public_Hook( $this->get_plugin_name(), $this->get_version() );
-		add_action( 'wp_enqueue_scripts', array( $plugin_public, 'enqueue_styles' ) );
-		add_action( 'wp_enqueue_scripts', array( $plugin_public, 'enqueue_scripts' ) );
+
+		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_styles' );
+		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_scripts' );
 
 	}
 
@@ -227,12 +230,34 @@ class Core {
 	 *
 	 * @since    1.0.0
 	 * @access   private
-	 * @see      \Plugin_Name_Name_Space\Includes\Init\Router
+	 * @see      \Plugin_Name_Dir\Includes\Init\Router
 	 */
 	private function check_url() {
 		$check_url_object = new Router();
-		add_action( 'init', array( $check_url_object, 'boot' ) );
+		$this->loader->add_action( 'init', $check_url_object, 'boot' );
+
 	}
 
+	/**
+	 * Run the loader to execute all of the hooks with WordPress.
+	 *
+	 * @since    1.0.0
+	 * @access   private
+	 * @see      \Plugin_Name_Dir\Includes\Init\Loader
+	 */
+	public function run() {
+		$this->loader->run();
+	}
+
+	/**
+	 * The reference to the class that orchestrates the hooks with the plugin.
+	 *
+	 * @since     1.0.0
+	 * @access    public
+	 * @return    Loader    Orchestrates the hooks of the plugin.
+	 */
+	public function get_loader() {
+		return $this->loader;
+	}
 }
 
